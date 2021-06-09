@@ -37,6 +37,7 @@ def generate_response(game_board, input_board):
     for j in range(len(temp_game_board)):
         if(temp_game_board[j] in temp_input_board):
             response.append('W') # W - correct colour but incorrect position
+            temp_game_board.pop(j)
     return response
 
 class masterMind():
@@ -62,6 +63,7 @@ class masterMind():
             return False
         if(self.game_turn >= 10):
             print("Game Over!")
+            print(self.game_board)
             return True
         elif(self.response_boards[len(self.response_boards)-1] == ['R', 'R', 'R', 'R']):
             print("Won in " + str(self.game_turn) + " turns!")
