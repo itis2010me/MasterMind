@@ -7,7 +7,16 @@ colours = ["b", "r", "w", "bl", "y", "g"]
 def read_input():
     user_input = []
     data = input("Enter the colors with ',' between each:\n")
+    if(data == 'q'):
+        exit(0)
     user_input = data.split(',')
+    if len(user_input) != 4:
+        print("Invalid amount of colours entered!")
+        return []
+    for element in user_input:
+        if(element not in colours):
+            print("Invalid colours entered!")
+            return []
     return user_input
 
 def read_hidden_combination():
@@ -34,10 +43,15 @@ def generate_response(game_board, input_board):
     if(len(response) == 4):
         return response
 
-    for j in range(len(temp_game_board)):
-        if(temp_game_board[j] in temp_input_board):
+    i = 0
+    while(i < len(temp_game_board)):
+        if(temp_game_board[i] in temp_input_board):
+            print(temp_game_board[i])
             response.append('W') # W - correct colour but incorrect position
-            temp_game_board.pop(j)
+            temp_input_board.remove(temp_game_board[i]) # remove first occurrence 
+            temp_game_board.pop(i)
+        else:
+            i += 1
     return response
 
 class masterMind():
@@ -90,10 +104,15 @@ class masterMind():
             print("Unknown input, exit")
             return
 
+        # debug
+        # print(self.game_board)
+
         while(not self.game_over()):
             self.game_turn += 1 # progress a game turn
             print("Turn " + str(self.game_turn))
             input_data = read_input()
+            while(input_data == []):
+                input_data = read_input()
             self.input_boards.append(input_data) # add input board to boards to print later
 
             current_response = generate_response(self.game_board, input_data)

@@ -11,6 +11,50 @@ Repetited colours are allowed.
 
 Future version will include an option to turn off repititon in auto generated board. For two player mode, this can also be prevented. 
 
+## Example
+
+```shell
+$ python3 main.py
+Please select 1 - user input colour combination or 2 - random colour combination: 2
+Turn 1
+Enter the colors with ',' between each:
+w,w,b,bl
+['w', 'w', 'b', 'bl'] []
+Turn 2
+Enter the colors with ',' between each:
+r,y,g,g
+r
+['w', 'w', 'b', 'bl'] []
+['r', 'y', 'g', 'g'] ['R', 'R', 'W']
+Turn 3
+Enter the colors with ',' between each:
+r,r,g,g,
+Invalid amount of colours entered!
+Enter the colors with ',' between each:
+r,r,g,g
+['w', 'w', 'b', 'bl'] []
+['r', 'y', 'g', 'g'] ['R', 'R', 'W']
+['r', 'r', 'g', 'g'] ['R', 'R', 'R']
+Turn 4
+Enter the colors with ',' between each:
+r,r,g,y
+['w', 'w', 'b', 'bl'] []
+['r', 'y', 'g', 'g'] ['R', 'R', 'W']
+['r', 'r', 'g', 'g'] ['R', 'R', 'R']
+['r', 'r', 'g', 'y'] ['R', 'R']
+Turn 5
+Enter the colors with ',' between each:
+g,r,g,g 
+['w', 'w', 'b', 'bl'] []
+['r', 'y', 'g', 'g'] ['R', 'R', 'W']
+['r', 'r', 'g', 'g'] ['R', 'R', 'R']
+['r', 'r', 'g', 'y'] ['R', 'R']
+['g', 'r', 'g', 'g'] ['R', 'R', 'R', 'R']
+Won in 5 turns!
+```
+
+
+
 ## Note
 
 There are currently no error checking for the following issues:
